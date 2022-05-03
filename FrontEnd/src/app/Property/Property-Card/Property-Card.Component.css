@@ -1,3 +1,31 @@
-.propImg{
+
+.img-wrapper{
+  overflow: hidden;
+  position: relative;
+}
+.img-wrapper:hover img{
   height: 250px;
+  transform: scale(1.2,1.2);
+  transition-duration: 500ms;
+  transition-timing-function: ease-out;
+  opacity: .7;
+}
+.img-wrapper img{
+  height: 250px;
+  transform: scale(1,1);
+  transition-duration: 500ms;
+  transition-timing-function: ease-out;
+}
+.member-icons{
+  position: absolute;
+  bottom: -30%;
+  left: 0;
+  right: 0;
+  margin-right: 0;
+  margin-left: auto;
+}
+.img-wrapper:hover .member-icons
+{
+  transition: 0.5s;
+  bottom: 0;
 }

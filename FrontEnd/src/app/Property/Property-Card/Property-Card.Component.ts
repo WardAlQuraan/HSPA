@@ -1,4 +1,6 @@
-import { Component } from "@angular/core";
+import { Component, Input } from "@angular/core";
+import { PathRoutes } from "src/app/PathRoutes";
+import { IProperty } from "../Iproperty.interface";
 
 @Component(
   {
@@ -9,10 +11,7 @@ import { Component } from "@angular/core";
 )
 export class PropertyCardComponent
 {
-  property:any = {
-    "Id":1,
-    "Name":"ward house",
-    "Type":"house",
-    "Price":12000
-  }
+  @Input()
+  property!: IProperty;
+  detailPropertyPath = '/'+PathRoutes.detailProperty;
 }

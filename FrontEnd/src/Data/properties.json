@@ -1,0 +1,54 @@
+[
+  {
+    "Id":1,
+    "Name":"ward house",
+    "Type":"house",
+    "SellRent":1,
+    "Price":12000,
+    "Image":"prop1.jpg"
+  },
+  {
+    "Id":2,
+    "Name":"ahmad bank",
+    "SellRent":2,
+    "Type":"bank",
+    "Price":12630,
+    "Image":"prop2.jpg"
+
+  }
+  ,
+  {
+    "Id":3,
+    "Name":"tahseen hptel",
+    "Type":"hotel",
+    "SellRent":1,
+    "Price":187324,
+    "Image":"prop3.jpg"
+
+  },
+  {
+    "Id":4,
+    "Name":"ward house",
+    "Type":"house",
+    "SellRent":1,
+    "Price":12000,
+    "Image":"prop4.png"
+  },
+  {
+    "Id":5,
+    "Name":"ward house",
+    "Type":"house",
+    "SellRent":1,
+    "Price":12000,
+    "Image":"prop5.png"
+
+  },
+  {
+    "Id":6,
+    "Name":"ward house",
+    "Type":"house",
+    "SellRent":2,
+    "Price":12000,
+    "Image":null
+  }
+]

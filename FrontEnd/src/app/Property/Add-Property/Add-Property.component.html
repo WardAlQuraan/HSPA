@@ -1,0 +1,34 @@
+<div class="card">
+  <div class="card-header">
+    Add New Property
+  </div>
+  <div class="card-body">
+    <form (ngSubmit)="OnSubmit(Form)" #Form="ngForm">
+      <div class="form-group col-12">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" #name="ngModel" ngModel name="Name" required>
+      </div>
+      <span *ngIf="!name.valid && name.touched" class="error-block">
+        please provide name
+      </span>
+      <div class="form-group col-12">
+        <label for="type">Type</label>
+        <input type="text" required #type="ngModel" class="form-control" ngModel name="Type">
+      </div>
+      <span *ngIf="!type.valid && type.touched" class="error-block">
+        please provide type
+      </span>
+      <div class="form-group col-12">
+        <label for="price">Price</label>
+        <input type="text" #price="ngModel" required class="form-control" ngModel name="Price">
+      </div>
+      <span *ngIf="!price.valid && price.touched" class="error-block">
+        please provide price
+      </span>
+      <div class="form-group col-12" style="margin-top: 10px;">
+        <button [disabled]="!Form.valid" type="submit" class="btn btn-primary" style="margin-right: 5px;">Save</button>
+        <button type="reset" class="btn btn-primary">Cancel</button>
+      </div>
+    </form>
+  </div>
+</div>
