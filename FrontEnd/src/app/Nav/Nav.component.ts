@@ -13,7 +13,8 @@ export class NavComponent implements OnInit {
   rentProperty:string ='/'+PathRoutes.rentProperty;
   listProperty:string ='/'+PathRoutes.listProperty;
   detailProperty:string ='/'+PathRoutes.detailProperty;
-
+  userLogin:string = "/"+PathRoutes.userLogin;
+  userRegister:string = "/"+PathRoutes.userRegister;
   constructor() { }
 
   ngOnInit() {

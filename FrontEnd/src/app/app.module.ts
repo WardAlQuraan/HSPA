@@ -11,7 +11,9 @@ import { NavComponent } from './Nav/Nav.component';
 import { HousingService } from './Services/housing.service';
 import { AddPropertyComponent } from './Property/Add-Property/Add-Property.component';
 import { PropertyDetailComponent } from './Property/Property-Detail/Property-Detail.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RegisterComponent } from './User/Register/Register.component';
+import { LoginComponent } from './User/Login/Login.component';
 
 @NgModule({
   declarations: [
@@ -20,13 +22,16 @@ import { FormsModule } from '@angular/forms';
     PropertyListComponent,
     NavComponent,
     AddPropertyComponent,
-    PropertyDetailComponent
+    PropertyDetailComponent,
+    RegisterComponent,
+    LoginComponent
    ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [
     HousingService
