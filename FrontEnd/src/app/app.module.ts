@@ -1,7 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { Routes, Router, RouterModule } from '@angular/router';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {HttpClientModule} from '@angular/common/http'
@@ -14,6 +12,12 @@ import { PropertyDetailComponent } from './Property/Property-Detail/Property-Det
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RegisterComponent } from './User/Register/Register.component';
 import { LoginComponent } from './User/Login/Login.component';
+import { UserService } from './Services/user.service';
+import { AlertifyService } from './Services/alertify.service';
+import { AuthService } from './Services/auth.service';
+import { TooltipModule } from 'ngx-bootstrap/tooltip';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 
 @NgModule({
   declarations: [
@@ -32,9 +36,17 @@ import { LoginComponent } from './User/Login/Login.component';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    TooltipModule,
+    BrowserAnimationsModule,
+    BsDropdownModule.forRoot()
+
   ],
   providers: [
-    HousingService
+    HousingService,
+    UserService,
+    AlertifyService,
+    AuthService,
+
   ],
   bootstrap: [AppComponent]
 })

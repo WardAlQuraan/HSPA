@@ -22,8 +22,6 @@ export class HousingService {
             var id:number = 0;
 
             for(var prop in properties){
-              console.log("Sell Rent = "+properties[id].SellRent)
-
               if(properties[id].SellRent===sellRent)
               {
                 propertiesReturned.push(properties[id]);

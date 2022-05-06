@@ -9,36 +9,36 @@
           <div class="form-group col-12">
             <label for="name" class="form-label">Name</label>
             <input type="text" class="form-control" formControlName="name">
-            <span class="error-block" *ngIf="UserName.hasError('required') && registrationForm.controls['name'].touched">
+            <span class="error-block" *ngIf="UserName.hasError('required') && (registrationForm.controls['name'].touched || userSubmitted)">
               Please, provide name
             </span>
-            <span class="error-block" *ngIf="UserName.hasError('minlength') && registrationForm.controls['name'].touched">
+            <span class="error-block" *ngIf="UserName.hasError('minlength') && (registrationForm.controls['name'].touched || userSubmitted)">
               Name must be at least 4 characters
             </span>
           </div>
           <div class="form-group col-12">
             <label for="email" class="form-label">Email</label>
             <input type="text" class="form-control"  formControlName="email">
-            <span class="error-block" *ngIf="Email.hasError('required') && registrationForm.controls['email'].touched">
+            <span class="error-block" *ngIf="Email.hasError('required') && (registrationForm.controls['email'].touched || userSubmitted)">
               Please, provide email
             </span>
-            <span class="error-block" *ngIf="Email.hasError('email') && registrationForm.controls['email'].touched">
+            <span class="error-block" *ngIf="Email.hasError('email') && (registrationForm.controls['email'].touched || userSubmitted)">
               invalid email
             </span>
           </div>
           <div class="form-group col-12">
             <label for="password" class="form-label">Password</label>
-            <input type="text" class="form-control" formControlName="password">
-            <span class="error-block" *ngIf="Password.hasError('required') && registrationForm.controls['password'].touched">
+            <input type="password" class="form-control" formControlName="password">
+            <span class="error-block" *ngIf="Password.hasError('required') && (registrationForm.controls['password'].touched || userSubmitted)">
               Please, provide password
             </span>
-            <span class="error-block" *ngIf="Password.hasError('minlength') && registrationForm.controls['password'].touched">
+            <span class="error-block" *ngIf="Password.hasError('minlength') && (registrationForm.controls['password'].touched || userSubmitted)">
               password must be at least 6 characters
             </span>
           </div>
           <div class="form-group col-12">
             <label for="confirmPassword" class="form-label">Confirm Password</label>
-            <input type="text" class="form-control" formControlName="confirmPassword">
+            <input type="password" class="form-control" formControlName="confirmPassword">
             <span class="error-block" *ngIf="ConfirmPassword.hasError('required') && registrationForm.controls['confirmPassword'].touched">
               Please, re-write password
             </span>
@@ -49,9 +49,15 @@
           <div class="form-group col-12">
             <label for="mobile" class="form-label">Mobile</label>
             <input type="text" class="form-control" formControlName="mobile">
+            <span class="error-block" *ngIf="Mobile.hasError('required') && (registrationForm.controls['mobile'].touched||userSubmitted)">
+              Please, provide mobile number
+            </span>
+            <span class="error-block" *ngIf="Mobile.hasError('minlength')">
+              mobile number must be at least 10 characters
+            </span>
           </div>
           <div class="form-group col-12">
-            <button type="submit" [disabled]="!registrationForm.valid" class="btn btn-primary m-2">Register</button>
+            <button type="submit"  class="btn btn-primary m-2">Register</button>
             <button type="reset" class="btn btn-primary">Cancel</button>
           </div>
         </form>

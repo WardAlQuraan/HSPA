@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { AbstractControl, FormBuilder, FormControl, FormGroup,  ValidationErrors,  ValidatorFn,  Validators } from '@angular/forms';
-
+import { AbstractControl,  FormControl, FormGroup,  ValidationErrors,  ValidatorFn,  Validators } from '@angular/forms';
+import { UserService } from 'src/app/Services/user.service';
+import { IUser } from '../user.interface';
+import { AlertifyService } from 'src/app/Services/alertify.service';
 @Component({
   selector: 'app-Register',
   templateUrl: './Register.component.html',
@@ -8,8 +10,9 @@ import { AbstractControl, FormBuilder, FormControl, FormGroup,  ValidationErrors
 })
 export class RegisterComponent implements OnInit {
   registrationForm: FormGroup | undefined;
-
-  constructor() { }
+  userSubmitted:boolean = false;
+  User :IUser | undefined ;
+  constructor(private userService:UserService, private alertifyService:AlertifyService) { }
 
   ngOnInit() {
     this.registrationForm =new FormGroup({
@@ -43,12 +46,26 @@ export class RegisterComponent implements OnInit {
     return this.registrationForm?.controls["mobile"] as FormControl;
   }
 
-
-
-
-
-  OnSubmit(){
-    if(this.UserName!=null)
-      console.log(this.UserName.hasError("minLength"));
+  userData():IUser{
+    return this.User = {
+      name: this.UserName.value,
+      email : this.Email.value,
+      password : this.Password.value,
+      confirmPassword : this.ConfirmPassword.value,
+      mobile : this.Mobile.value
+    };
   }
+  OnSubmit(){
+    this.userSubmitted = true;
+    if(this.registrationForm?.valid){
+      this.userService.addUser(this.userData());
+      this.registrationForm.reset();
+      this.userSubmitted = false;
+      this.alertifyService.Success("Congrats, you are successfylly registeres");
+    }else{
+      this.alertifyService.Error("Kindly provide the required fields");
+    }
+
+  }
+
 }
